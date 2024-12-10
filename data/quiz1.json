@@ -1,0 +1,32 @@
+{
+    "1": {
+        "question": "What is the capital of France?",
+        "options": [
+            "Berlin",
+            "Madrid",
+            "Paris",
+            "Rome"
+        ],
+        "answer": "Paris"
+    },
+    "2": {
+        "question": "Which programming language is known for its simplicity and readability",
+        "options": [
+            "Java",
+            "Python",
+            "C++",
+            "JavaScript"
+        ],
+        "answer": "Python"
+    },
+    "3": {
+        "question": "What is the largest planet in our solar system",
+        "options": [
+            "Earth",
+            "Mars",
+            "Jupiter",
+            "Saturn"
+        ],
+        "answer": "Jupiter"
+    }
+}
