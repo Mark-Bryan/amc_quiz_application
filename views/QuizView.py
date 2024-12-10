@@ -53,6 +53,9 @@ class QuizView:
                 previousQuestion, self.nextQuestion, self.previousQuestion, self.submit
             )
 
+        else:
+            print("This is the first question. Cannot go back further.")
+
     def displayQuestion(self):
         pass
 
@@ -75,7 +78,6 @@ class QuizView:
     def displayScore(self):
         scoreWindow = Tk()
         scoreWindow.title("Quiz Results")
-
         scoreMessage = Label(
             scoreWindow,
             text=f"Your final score is {self.getScore()} out of {len(self.questions)}",
