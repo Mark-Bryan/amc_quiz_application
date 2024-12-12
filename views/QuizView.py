@@ -66,12 +66,11 @@ class QuizView:
         pass
 
     def getScore(self):
+        self.score = 0
         i = 0
         for answer in self.responses.values():
             if answer == self.questions[i].answer:
                 self.score += 1
-                i += 1
-            else:
                 i += 1
         return self.score
 
@@ -83,6 +82,37 @@ class QuizView:
             text=f"Your final score is {self.getScore()} out of {len(self.questions)}",
         )
         scoreMessage.pack(padx=20, pady=20)
+        # This frame is to hold the question details
+        results_frame = Frame(scoreWindow)
+        results_frame.pack(padx=20, pady=20)
+        # Looping through the questions
+
+        i = 0
+        for question in self.questions:
+            user_answer = self.responses.get(i)
+            is_correct = user_answer == question.answer
+            # Displaying the question text and number
+            question_label = Label(results_frame, text=f"Q{i + 1}: {question.question}")
+            question_label.pack(padx=5, pady=5)
+            # Displaying the answer the user selected
+            if is_correct:
+                user_answer_label = Label(
+                    results_frame, text=f"Your Answer : {user_answer}", fg="green"
+                )
+            else:
+                user_answer_label = Label(
+                    results_frame, text=f"Your Answer : {user_answer}", fg="red"
+                )
+
+                user_answer_label.pack(padx=20, pady=20)
+            # Displaying the tick or cross
+            if is_correct:
+                correct_answer = Label(results_frame, text="✓", fg="green")
+            else:
+                correct_answer = Label(results_frame, text="X", fg="red")
+                correct_answer.pack(padx=20, pady=20)
+
+                i += 0
 
         closeBtn = Button(scoreWindow, text="Close", command=scoreWindow.destroy)
         closeBtn.pack(pady=10)
